@@ -1,0 +1,35 @@
+import { z } from "zod";
+declare const EnvSchema: z.ZodObject<{
+    PORT: z.ZodDefault<z.ZodCoercedNumber<unknown>>;
+    HOST: z.ZodDefault<z.ZodString>;
+    JWT_SECRET: z.ZodString;
+    JWT_EXPIRES_IN: z.ZodDefault<z.ZodString>;
+    BCRYPT_SALT_ROUNDS: z.ZodDefault<z.ZodCoercedNumber<unknown>>;
+    DATABASE_PATH: z.ZodDefault<z.ZodString>;
+    XMPP_PORT: z.ZodDefault<z.ZodCoercedNumber<unknown>>;
+    XMPP_HOST: z.ZodDefault<z.ZodString>;
+    CURRENT_SEASON: z.ZodDefault<z.ZodCoercedNumber<unknown>>;
+    SEASON_LIMIT: z.ZodDefault<z.ZodCoercedNumber<unknown>>;
+    BATTLEPASS_ENABLED: z.ZodDefault<z.ZodCoercedBoolean<unknown>>;
+    MATCHMAKER_IP: z.ZodDefault<z.ZodString>;
+    MATCHMAKER_PORT: z.ZodDefault<z.ZodCoercedNumber<unknown>>;
+    CORS_ORIGIN: z.ZodDefault<z.ZodString>;
+}, z.core.$strip>;
+export type EnvConfig = z.infer<typeof EnvSchema>;
+export declare const config: {
+    PORT: number;
+    HOST: string;
+    JWT_SECRET: string;
+    JWT_EXPIRES_IN: string;
+    BCRYPT_SALT_ROUNDS: number;
+    DATABASE_PATH: string;
+    XMPP_PORT: number;
+    XMPP_HOST: string;
+    CURRENT_SEASON: number;
+    SEASON_LIMIT: number;
+    BATTLEPASS_ENABLED: boolean;
+    MATCHMAKER_IP: string;
+    MATCHMAKER_PORT: number;
+    CORS_ORIGIN: string;
+};
+export {};
